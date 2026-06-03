@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miri Stryjan | Economics | Aalto University</title>
+  <meta name="description" content="Assistant Professor in Economics at Aalto University. Research in development economics and applied microeconomics with a regional focus on East Africa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f7f5f0;
+      --ink: #1a1916;
+      --ink-mid: #4a4742;
+      --ink-light: #8a8680;
+      --accent: #2e5c8a;
+      --accent-light: #d6e4f0;
+      --rule: #dddad4;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --max-w: 860px;
+      --nav-h: 64px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: var(--ink); transition: all 0.25s;
+    }
+
+    /* mobile nav */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
+      padding: 1.5rem 2rem;
+      z-index: 99;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      text-decoration: none;
+    }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding-top: calc(var(--nav-h) + 4rem);
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    section:last-child { border-bottom: none; }
+
+    /* ── HERO ── */
+    #home {
+      display: grid;
+      grid-template-columns: 1fr 230px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .hero-text h1 {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-text .position {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 2rem;
+    }
+
+    .hero-text p {
+      font-size: 0.97rem;
+      color: var(--ink-mid);
+      margin-bottom: 1rem;
+      max-width: 520px;
+    }
+
+    .hero-text p a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-light);
+      transition: border-color 0.2s;
+    }
+    .hero-text p a:hover { border-color: var(--accent); }
+
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 0.55rem 1.2rem;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover { background: var(--ink); color: var(--cream); }
+    .btn-primary {
+      background: var(--ink);
+      color: var(--cream);
+    }
+    .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+
+    .hero-photo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .photo-frame {
+      width: 100%;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      background: var(--accent-light);
+    }
+
+    .photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(15%);
+    }
+
+    /* placeholder photo */
+    .photo-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #c8d8e8 0%, #e8eef4 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 1rem;
+    }
+
+    .photo-credit {
+      font-size: 0.68rem;
+      color: var(--ink-light);
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* ── CONTACT CARD ── */
+    .contact-inline {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .contact-inline h3 {
+      font-family: var(--serif);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-inline p {
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+
+    .contact-inline a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .social-links {
+      display: flex; gap: 0.75rem; margin-top: 0.75rem;
+    }
+
+    .social-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .social-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── SECTION HEADERS ── */
+    .section-label {
+      font-family: var(--serif);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── RESEARCH ── */
+    .paper-list { display: flex; flex-direction: column; gap: 0; }
+
+    .paper {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .paper:last-child { border-bottom: 1px solid var(--rule); }
+
+    .paper-status {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 0.4rem;
+    }
+
+    .paper-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+
+    .paper-coauthors {
+      font-size: 0.83rem;
+      color: var(--ink-light);
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .paper-journal {
+      font-size: 0.83rem;
+      color: var(--ink-mid);
+      margin-bottom: 0.6rem;
+    }
+
+    .paper-abstract {
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .paper-abstract.open { max-height: 400px; }
+
+    .paper-links {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      margin-top: 0.6rem;
+    }
+
+    .paper-link {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-light);
+      cursor: pointer;
+      background: none; border-top: none; border-left: none; border-right: none;
+      font-family: var(--sans); font-weight: 400;
+      transition: border-color 0.2s;
+    }
+    .paper-link:hover { border-color: var(--accent); }
+
+    /* ── RESEARCH GROUPS ── */
+    .research-subsection {
+      margin-top: 0;
+    }
+    .subsection-header {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin: 2.5rem 0 0;
+      padding-bottom: 0.5rem;
+    }
+
+    /* ── CV ── */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0;
+    }
+
+    .cv-row {
+      display: contents;
+    }
+
+    .cv-year {
+      font-size: 0.8rem;
+      color: var(--ink-light);
+      padding: 1rem 1rem 1rem 0;
+      border-top: 1px solid var(--rule);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cv-detail {
+      padding: 1rem 0;
+      border-top: 1px solid var(--rule);
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+    }
+
+    .cv-detail strong {
+      display: block;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.1rem;
+    }
+
+    .cv-section-head {
+      grid-column: 1 / -1;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-top: 2.5rem;
+      margin-bottom: 0.25rem;
+      color: var(--ink);
+    }
+    .cv-section-head:first-of-type { margin-top: 0; }
+
+    .cv-download {
+      margin-top: 2rem;
+    }
+
+    /* ── TEACHING ── */
+    .course-list { display: flex; flex-direction: column; gap: 0; }
+
+    .course {
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+    }
+    .course:last-child { border-bottom: 1px solid var(--rule); }
+
+    .course-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .course-meta {
+      font-size: 0.82rem;
+      color: var(--ink-light);
+    }
+
+    .course-level {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      white-space: nowrap;
+      margin-top: 0.25rem;
+    }
+
+    /* ── CONTACT ── */
+    #contact .contact-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-group h3 {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-group p {
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      line-height: 1.8;
+    }
+
+    .contact-group a { color: var(--accent); text-decoration: none; }
+
+    /* ── FOOTER ── */
+    footer {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2rem;
+      font-size: 0.75rem;
+      color: var(--ink-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      #home {
+        grid-template-columns: 1fr;
+      }
+      .hero-photo {
+        order: -1;
+        max-width: 200px;
+      }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      #contact .contact-body {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .cv-grid {
+        grid-template-columns: 100px 1fr;
+      }
+      .course {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* fade in */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text, .hero-photo {
+      animation: fadeUp 0.7s ease both;
+    }
+    .hero-photo { animation-delay: 0.15s; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="nav-name">Miri Stryjan</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="menuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMobile()">Home</a>
+  <a href="#research" onclick="closeMobile()">Research</a>
+  <a href="#cv" onclick="closeMobile()">CV</a>
+  <a href="#teaching" onclick="closeMobile()">Teaching</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<main>
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="hero-text">
+      <h1>Miri Stryjan</h1>
+      <p class="position">Assistant Professor &nbsp;·&nbsp; Department of Economics &nbsp;·&nbsp; Aalto University</p>
+
+      <p>
+        I am a member of the Economics Department at the
+        <a href="https://www.aalto.fi/en/department-of-economics" target="_blank" rel="noopener">Aalto University School of Business</a>,
+        part of the <a href="https://www.helsinkigse.fi" target="_blank" rel="noopener">Helsinki Graduate School of Economics</a>.
+        I chair the <a href="https://www.helsinkigse.fi/groups/development-economics" target="_blank" rel="noopener">Development Economics Research Group</a> of the Helsinki GSE.
+      </p>
+
+      <p>
+        I do research in development economics, political economics, and applied microeconomics,
+        using field experiments and quasi-experimental methods to answer causal questions.
+        Much of my current research studies different aspects of finance in developing countries,
+        including loan contract structure, selection into borrowing, and the motivation of loan officers in microfinance.
+        I am also interested in how individuals and communities interact with and within institutions —
+        exemplified by my work on community-based service delivery and community meetings.
+      </p>
+
+      <p>
+        I hold a PhD from the Institute for International Economic Studies
+        (<a href="https://www.iies.su.se/" target="_blank" rel="noopener">IIES</a>), Stockholm University.
+      </p>
+
+      <div class="hero-links">
+        <a href="#" class="btn btn-primary">Download CV</a>
+        <a href="#research" class="btn">View Research</a>
+      </div>
+
+      <div class="contact-inline">
+        <h3>Contact</h3>
+        <p>
+          <a href="mailto:miri.stryjan@aalto.fi">miri.stryjan@aalto.fi</a><br>
+          Department of Economics, Aalto University School of Business<br>
+          PO Box 21210, FI-00076 Aalto, Finland
+        </p>
+        <div class="social-links">
+          <a href="https://bsky.app/profile/mstryjan.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+          <a href="#" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="#" target="_blank" rel="noopener">SSRN</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <div class="photo-frame">
+        <!-- Replace src with your actual photo path, e.g. assets/photo.jpg -->
+        <div class="photo-placeholder"></div>
+        <!-- <img src="assets/photo.jpg" alt="Miri Stryjan" /> -->
+      </div>
+      <span class="photo-credit">Photo: Aalto University / Linda Lehtovirta</span>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <p class="section-label">Academic Work</p>
+    <h2 class="section-title">Research</h2>
+
+    <div class="research-subsection">
+      <p class="subsection-header">Published &amp; Forthcoming</p>
+      <div class="paper-list">
+
+        <div class="paper">
+          <p class="paper-status">Published</p>
+          <p class="paper-title">Add your published paper title here</p>
+          <p class="paper-coauthors">with Co-Author Name</p>
+          <p class="paper-journal"><em>Journal Name</em>, Volume(Issue), Year, pp. 000–000.</p>
+          <div class="paper-links">
+            <a href="#" class="paper-link">Journal</a>
+            <button class="paper-link" onclick="toggleAbstract(this)">Abstract ↓</button>
+          </div>
+          <p class="paper-abstract">Abstract text goes here. Replace with your actual abstract describing the research question, methodology, and main findings.</p>
+        </div>
+
+        <div class="paper">
+          <p class="paper-status">Published</p>
+          <p class="paper-title">Add your second published paper title here</p>
+          <p class="paper-coauthors">with Co-Author Name</p>
+          <p class="paper-journal"><em>Journal Name</em>, Volume(Issue), Year, pp. 000–000.</p>
+          <div class="paper-links">
+            <a href="#" class="paper-link">Journal</a>
+            <a href="#" class="paper-link">Working Paper</a>
+            <button class="paper-link" onclick="toggleAbstract(this)">Abstract ↓</button>
+          </div>
+          <p class="paper-abstract">Abstract text goes here. Replace with your actual abstract describing the research question, methodology, and main findings.</p>
+        </div>
+
+      </div>
+
+      <p class="subsection-header">Working Papers</p>
+      <div class="paper-list">
+
+        <div class="paper">
+          <p class="paper-status">Working Paper</p>
+          <p class="paper-title">Add your working paper title here</p>
+          <p class="paper-coauthors">with Co-Author Name</p>
+          <div class="paper-links">
+            <a href="#" class="paper-link">PDF</a>
+            <button class="paper-link" onclick="toggleAbstract(this)">Abstract ↓</button>
+          </div>
+          <p class="paper-abstract">Abstract text goes here. Replace with your actual abstract describing the research question, methodology, and main findings.</p>
+        </div>
+
+        <div class="paper">
+          <p class="paper-status">Work in Progress</p>
+          <p class="paper-title">Add your work-in-progress title here</p>
+          <p class="paper-coauthors">with Co-Author Name</p>
+          <div class="paper-links">
+            <button class="paper-link" onclick="toggleAbstract(this)">Abstract ↓</button>
+          </div>
+          <p class="paper-abstract">Abstract text goes here.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section id="cv">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">Curriculum Vitae</h2>
+
+    <div class="cv-grid">
+      <div class="cv-section-head">Academic Positions</div>
+
+      <div class="cv-row">
+        <div class="cv-year">2019–</div>
+        <div class="cv-detail"><strong>Assistant Professor, Department of Economics</strong>Aalto University School of Business, Helsinki</div>
+      </div>
+
+      <div class="cv-section-head">Education</div>
+
+      <div class="cv-row">
+        <div class="cv-year">2019</div>
+        <div class="cv-detail"><strong>PhD in Economics</strong>Institute for International Economic Studies (IIES), Stockholm University</div>
+      </div>
+
+      <div class="cv-row">
+        <div class="cv-year">2012</div>
+        <div class="cv-detail"><strong>MSc in Economics</strong>Add institution here</div>
+      </div>
+
+      <div class="cv-section-head">Affiliations</div>
+
+      <div class="cv-row">
+        <div class="cv-year"></div>
+        <div class="cv-detail"><strong>Chair, Development Economics Research Group</strong>Helsinki Graduate School of Economics</div>
+      </div>
+
+      <div class="cv-section-head">Fields</div>
+
+      <div class="cv-row">
+        <div class="cv-year"></div>
+        <div class="cv-detail">Development Economics &nbsp;·&nbsp; Political Economics &nbsp;·&nbsp; Applied Microeconomics</div>
+      </div>
+    </div>
+
+    <div class="cv-download">
+      <a href="#" class="btn">Download Full CV (PDF)</a>
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section id="teaching">
+    <p class="section-label">Courses</p>
+    <h2 class="section-title">Teaching</h2>
+
+    <div class="course-list">
+
+      <div class="course">
+        <div>
+          <p class="course-name">Development Economics</p>
+          <p class="course-meta">Aalto University School of Business</p>
+        </div>
+        <p class="course-level">PhD / MSc</p>
+      </div>
+
+      <div class="course">
+        <div>
+          <p class="course-name">Applied Microeconomics</p>
+          <p class="course-meta">Aalto University School of Business</p>
+        </div>
+        <p class="course-level">MSc</p>
+      </div>
+
+      <div class="course">
+        <div>
+          <p class="course-name">Add Course Name Here</p>
+          <p class="course-meta">Add institution / term here</p>
+        </div>
+        <p class="course-level">BSc</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title">Contact</h2>
+
+    <div class="contact-body">
+      <div class="contact-group">
+        <h3>Email</h3>
+        <p><a href="mailto:miri.stryjan@aalto.fi">miri.stryjan@aalto.fi</a></p>
+
+        <h3 style="margin-top:1.5rem;">Online</h3>
+        <p>
+          <a href="https://bsky.app/profile/mstryjan.bsky.social" target="_blank" rel="noopener">Bluesky</a><br>
+          <a href="#" target="_blank" rel="noopener">Google Scholar</a><br>
+          <a href="#" target="_blank" rel="noopener">SSRN</a>
+        </p>
+      </div>
+
+      <div class="contact-group">
+        <h3>Office Address</h3>
+        <p>
+          Department of Economics<br>
+          Aalto University School of Business<br>
+          PO Box 21210<br>
+          FI-00076 Aalto<br>
+          Finland
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© 2024 Miri Stryjan</span>
+  <span>Aalto University</span>
+</footer>
+
+<script>
+  // Mobile menu
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('mobileMenu');
+  btn.addEventListener('click', () => menu.classList.toggle('open'));
+  function closeMobile() { menu.classList.remove('open'); }
+
+  // Abstract toggle
+  function toggleAbstract(el) {
+    const abstract = el.closest('.paper').querySelector('.paper-abstract');
+    const isOpen = abstract.classList.toggle('open');
+    el.textContent = isOpen ? 'Abstract ↑' : 'Abstract ↓';
+  }
+</script>
+
+</body>
+</html>
