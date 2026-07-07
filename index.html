@@ -7,10 +7,9 @@
   <meta name="description" content="Assistant Professor in Economics at Aalto University. Research in development economics and applied microeconomics with a regional focus on East Africa." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapids.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --cream: #f7f5f0;
       --ink: #1a1916;
@@ -24,9 +23,7 @@
       --max-w: 860px;
       --nav-h: 64px;
     }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--cream);
       color: var(--ink);
@@ -35,7 +32,6 @@
       line-height: 1.7;
       font-weight: 300;
     }
-
     /* ── NAV ── */
     nav {
       position: fixed;
@@ -48,7 +44,6 @@
       align-items: center;
       padding: 0 2rem;
     }
-
     .nav-inner {
       width: 100%;
       max-width: var(--max-w);
@@ -57,7 +52,6 @@
       align-items: center;
       justify-content: space-between;
     }
-
     .nav-name {
       font-family: var(--serif);
       font-size: 1.15rem;
@@ -66,13 +60,11 @@
       color: var(--ink);
       text-decoration: none;
     }
-
     .nav-links {
       display: flex;
       gap: 2rem;
       list-style: none;
     }
-
     .nav-links a {
       font-size: 0.75rem;
       font-weight: 400;
@@ -82,9 +74,8 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-
     .nav-links a:hover { color: var(--accent); }
-
+    .nav-links a.active { color: var(--accent); font-weight: 500; }
     /* hamburger */
     .hamburger {
       display: none;
@@ -99,7 +90,6 @@
       display: block; width: 22px; height: 1.5px;
       background: var(--ink); transition: all 0.25s;
     }
-
     /* mobile nav */
     .mobile-menu {
       display: none;
@@ -120,29 +110,29 @@
       color: var(--ink-mid);
       text-decoration: none;
     }
-
+    .mobile-menu a.active { color: var(--accent); }
     /* ── LAYOUT ── */
     main {
       max-width: var(--max-w);
       margin: 0 auto;
       padding: 0 2rem;
     }
-
     section {
+      display: none;
       padding-top: calc(var(--nav-h) + 4rem);
       padding-bottom: 4rem;
-      border-bottom: 1px solid var(--rule);
     }
-    section:last-child { border-bottom: none; }
-
+    section.active {
+      display: block;
+      animation: fadeUp 0.4s ease both;
+    }
     /* ── HERO ── */
-    #home {
+    #home.active {
       display: grid;
       grid-template-columns: 1fr 230px;
       gap: 3rem;
       align-items: start;
     }
-
     .hero-text h1 {
       font-family: var(--serif);
       font-size: 2.6rem;
@@ -151,7 +141,6 @@
       margin-bottom: 0.25rem;
       letter-spacing: -0.01em;
     }
-
     .hero-text .position {
       font-size: 0.82rem;
       letter-spacing: 0.08em;
@@ -159,14 +148,12 @@
       color: var(--ink-light);
       margin-bottom: 2rem;
     }
-
     .hero-text p {
       font-size: 0.97rem;
       color: var(--ink-mid);
       margin-bottom: 1rem;
       max-width: 520px;
     }
-
     .hero-text p a {
       color: var(--accent);
       text-decoration: none;
@@ -174,14 +161,12 @@
       transition: border-color 0.2s;
     }
     .hero-text p a:hover { border-color: var(--accent); }
-
     .hero-links {
       display: flex;
       gap: 1rem;
       margin-top: 2rem;
       flex-wrap: wrap;
     }
-
     .btn {
       display: inline-block;
       font-size: 0.72rem;
@@ -200,28 +185,24 @@
       color: var(--cream);
     }
     .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
-
     .hero-photo {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.75rem;
     }
-
     .photo-frame {
       width: 100%;
       aspect-ratio: 4/5;
       overflow: hidden;
       background: var(--accent-light);
     }
-
     .photo-frame img {
       width: 100%; height: 100%;
       object-fit: cover;
       display: block;
       filter: grayscale(15%);
     }
-
     /* placeholder photo */
     .photo-placeholder {
       width: 100%; height: 100%;
@@ -231,21 +212,18 @@
       justify-content: center;
       padding-bottom: 1rem;
     }
-
     .photo-credit {
       font-size: 0.68rem;
       color: var(--ink-light);
       text-align: center;
       font-style: italic;
     }
-
     /* ── CONTACT CARD ── */
     .contact-inline {
       margin-top: 2.5rem;
       padding-top: 2rem;
       border-top: 1px solid var(--rule);
     }
-
     .contact-inline h3 {
       font-family: var(--serif);
       font-size: 0.75rem;
@@ -254,22 +232,18 @@
       color: var(--ink-light);
       margin-bottom: 0.75rem;
     }
-
     .contact-inline p {
       font-size: 0.88rem;
       color: var(--ink-mid);
       line-height: 1.6;
     }
-
     .contact-inline a {
       color: var(--accent);
       text-decoration: none;
     }
-
     .social-links {
       display: flex; gap: 0.75rem; margin-top: 0.75rem;
     }
-
     .social-links a {
       font-size: 0.72rem;
       letter-spacing: 0.08em;
@@ -280,7 +254,6 @@
       transition: color 0.2s, border-color 0.2s;
     }
     .social-links a:hover { color: var(--accent); border-color: var(--accent); }
-
     /* ── SECTION HEADERS ── */
     .section-label {
       font-family: var(--serif);
@@ -290,7 +263,6 @@
       color: var(--ink-light);
       margin-bottom: 0.5rem;
     }
-
     .section-title {
       font-family: var(--serif);
       font-size: 2rem;
@@ -299,16 +271,13 @@
       margin-bottom: 2.5rem;
       letter-spacing: -0.01em;
     }
-
     /* ── RESEARCH ── */
     .paper-list { display: flex; flex-direction: column; gap: 0; }
-
     .paper {
       padding: 1.5rem 0;
       border-top: 1px solid var(--rule);
     }
     .paper:last-child { border-bottom: 1px solid var(--rule); }
-
     .paper-status {
       font-size: 0.68rem;
       letter-spacing: 0.1em;
@@ -316,7 +285,6 @@
       color: var(--ink-light);
       margin-bottom: 0.4rem;
     }
-
     .paper-title {
       font-family: var(--serif);
       font-size: 1.1rem;
@@ -325,20 +293,17 @@
       margin-bottom: 0.3rem;
       line-height: 1.4;
     }
-
     .paper-coauthors {
       font-size: 0.83rem;
       color: var(--ink-light);
       font-style: italic;
       margin-bottom: 0.5rem;
     }
-
     .paper-journal {
       font-size: 0.83rem;
       color: var(--ink-mid);
       margin-bottom: 0.6rem;
     }
-
     .paper-abstract {
       font-size: 0.85rem;
       color: var(--ink-mid);
@@ -347,12 +312,10 @@
       transition: max-height 0.4s ease;
     }
     .paper-abstract.open { max-height: 400px; }
-
     .paper-links {
       display: flex; gap: 1rem; flex-wrap: wrap;
       margin-top: 0.6rem;
     }
-
     .paper-link {
       font-size: 0.7rem;
       letter-spacing: 0.08em;
@@ -366,7 +329,6 @@
       transition: border-color 0.2s;
     }
     .paper-link:hover { border-color: var(--accent); }
-
     .paper-note {
   font-size: 0.8rem;
   color: var(--ink-light);
@@ -385,18 +347,15 @@
       margin: 2.5rem 0 0;
       padding-bottom: 0.5rem;
     }
-
     /* ── CV ── */
     .cv-grid {
       display: grid;
       grid-template-columns: 160px 1fr;
       gap: 0;
     }
-
     .cv-row {
       display: contents;
     }
-
     .cv-year {
       font-size: 0.8rem;
       color: var(--ink-light);
@@ -404,21 +363,18 @@
       border-top: 1px solid var(--rule);
       font-variant-numeric: tabular-nums;
     }
-
     .cv-detail {
       padding: 1rem 0;
       border-top: 1px solid var(--rule);
       font-size: 0.9rem;
       color: var(--ink-mid);
     }
-
     .cv-detail strong {
       display: block;
       font-weight: 500;
       color: var(--ink);
       margin-bottom: 0.1rem;
     }
-
     .cv-section-head {
       grid-column: 1 / -1;
       font-family: var(--serif);
@@ -430,14 +386,11 @@
       color: var(--ink);
     }
     .cv-section-head:first-of-type { margin-top: 0; }
-
     .cv-download {
       margin-top: 2rem;
     }
-
     /* ── TEACHING ── */
     .course-list { display: flex; flex-direction: column; gap: 0; }
-
     .course {
       padding: 1.25rem 0;
       border-top: 1px solid var(--rule);
@@ -447,19 +400,16 @@
       align-items: start;
     }
     .course:last-child { border-bottom: 1px solid var(--rule); }
-
     .course-name {
       font-family: var(--serif);
       font-size: 1.05rem;
       font-weight: 500;
       margin-bottom: 0.25rem;
     }
-
     .course-meta {
       font-size: 0.82rem;
       color: var(--ink-light);
     }
-
     .course-level {
       font-size: 0.68rem;
       letter-spacing: 0.1em;
@@ -468,14 +418,12 @@
       white-space: nowrap;
       margin-top: 0.25rem;
     }
-
     /* ── CONTACT ── */
     #contact .contact-body {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
     }
-
     .contact-group h3 {
       font-size: 0.72rem;
       letter-spacing: 0.12em;
@@ -483,15 +431,12 @@
       color: var(--ink-light);
       margin-bottom: 0.75rem;
     }
-
     .contact-group p {
       font-size: 0.9rem;
       color: var(--ink-mid);
       line-height: 1.8;
     }
-
     .contact-group a { color: var(--accent); text-decoration: none; }
-
     /* ── FOOTER ── */
     footer {
       max-width: var(--max-w);
@@ -503,10 +448,9 @@
       justify-content: space-between;
       align-items: center;
     }
-
     /* ── RESPONSIVE ── */
     @media (max-width: 680px) {
-      #home {
+      #home.active {
         grid-template-columns: 1fr;
       }
       .hero-photo {
@@ -526,20 +470,14 @@
         grid-template-columns: 1fr;
       }
     }
-
     /* fade in */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .hero-text, .hero-photo {
-      animation: fadeUp 0.7s ease both;
-    }
-    .hero-photo { animation-delay: 0.15s; }
   </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
@@ -556,49 +494,41 @@
     </button>
   </div>
 </nav>
-
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#home" onclick="closeMobile()">Home</a>
-  <a href="#research" onclick="closeMobile()">Research</a>
-  <a href="#cv" onclick="closeMobile()">CV</a>
-  <a href="#teaching" onclick="closeMobile()">Teaching</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="#home">Home</a>
+  <a href="#research">Research</a>
+  <a href="#cv">CV</a>
+  <a href="#teaching">Teaching</a>
+  <a href="#contact">Contact</a>
 </div>
-
 <main>
-
   <!-- HOME -->
-  <section id="home">
+  <section id="home" class="active">
     <div class="hero-text">
       <h1>Miri Stryjan</h1>
       <p class="position">Assistant Professor &nbsp;·&nbsp; Economics &nbsp;·&nbsp; Aalto University</p>
-
       <p>
         I am an Assistant Professor in the Economics Department at the
         <a href="https://www.aalto.fi/en/department-of-economics" target="_blank" rel="noopener">Aalto University School of Business</a>,
         part of the <a href="https://www.helsinkigse.fi" target="_blank" rel="noopener">Helsinki Graduate School of Economics</a>.
         I chair the <a href="https://www.helsinkigse.fi/groups/development-economics" target="_blank" rel="noopener">Development Economics Research Group</a> of the Helsinki GSE.
       </p>
-
       <p>
         I do research in development economics, political economics, and applied microeconomics,
         using field experiments and quasi-experimental methods to answer causal questions.
         Much of my current research studies different aspects of finance in developing countries,
         including loan contract structure, financial service adoption, and the motivation of loan officers in microfinance.
         I am also interested in how individuals and communities interact with and within institutions, broadly defined. This is
-        exemplified by my work on community-based service delivery and community meetings. Recently I have also worked on education and inequality. 
+        exemplified by my work on community-based service delivery and community meetings. Recently I have also worked on education and inequality.
       </p>
-
       <p>
         I hold a PhD from the Institute for International Economic Studies
         (<a href="https://www.iies.su.se/" target="_blank" rel="noopener">IIES</a>), Stockholm University.
       </p>
-
       <div class="hero-links">
         <a href="files/CV_Stryjan_June_2026.pdf" class="btn btn-primary">Download CV</a>
         <a href="#research" class="btn">View Research</a>
       </div>
-
       <div class="contact-inline">
         <h3>Contact</h3>
         <p>
@@ -612,25 +542,21 @@
         </div>
       </div>
     </div>
-
     <div class="hero-photo">
       <div class="photo-frame">
         <!-- Replace src with your actual photo path, e.g. assets/photo.jpg -->
-        <img src="assets/Photo.jpg" alt="Miri Stryjan" 
+        <img src="assets/Photo.jpg" alt="Miri Stryjan" />
       </div>
       <span class="photo-credit">Photo: Aalto University / Linda Lehtovirta</span>
     </div>
   </section>
-
   <!-- RESEARCH -->
   <section id="research">
     <p class="section-label">Academic Work</p>
     <h2 class="section-title">Research</h2>
-
 <div class="research-subsection">
       <p class="subsection-header">Published &amp; Forthcoming</p>
       <div class="paper-list">
-
         <div class="paper">
           <p class="paper-status">Published  · 2026</p>
           <p class="paper-title">Disconnected: The Unequal Impact of Online Learning on Minority Students</p>
@@ -642,7 +568,6 @@
           </div>
           <p class="paper-abstract">Online instruction holds the promise of expanding access to education for disadvantaged groups, yet it often deepens existing performance gaps. This study examines its impact on high-stakes exam outcomes, focusing on mechanisms driving differential effects for minority students. We leverage rich administrative data on students from five consecutive cohorts in 31 Israeli vocational colleges and the abrupt transition to online instruction during the COVID-19 pandemic. A key advantage of our setting is that exams were held in-person and graded centrally, ensuring comparability to pre-pandemic performance. Using a difference-in-differences design that compares outcomes within students and across cohorts, we find significant declines in both exam attendance and demonstrated knowledge following the switch to online instruction. These effects are not explained by local infection rates or childcare responsibilities, and are especially pronounced among Arabic-speaking minority students, regardless of their socioeconomic status. Drawing on variation in internet infrastructure, residential crowdedness, language of instruction, and prior academic performance, we show that poor internet access is a central mechanism underlying the adverse effects among minority students. For majority-group students, negative effects are concentrated among weaker students, suggesting widening disparities within the majority group. For minority students, the difference by prior achievement is not statistically significant, and if anything, the drop is larger for higher achievers.</p>
         </div>
-
         <div class="paper">
           <p class="paper-status">Published · 2025</p>
           <p class="paper-title">SMEs and Workers during Crises: Evidence from the COVID-19 Pandemic in Uganda</p>
@@ -654,18 +579,17 @@
           </div>
           <p class="paper-abstract">We use a five-year panel of Ugandan SMEs, supplemented with phone-survey data from August 2020, to analyze how the onset of the COVID-19 pandemic affected profits and employment. Most firms had employees, enabling us to investigate whether — and how — the crisis reshaped SMEs' job-creation capacity, with particular focus on gender differences. Profits fell substantially for all firms, yet male entrepreneurs paradoxically expanded their workforce — suggesting that hiring under crisis may arise partly from social obligations. Meanwhile, female entrepreneurs bore heavier caregiving loads and relied more on extended family support, potentially hampering future growth through added caregiving and reciprocal obligations.</p>
         </div>
-
         <div class="paper">
           <p class="paper-status">Published · 2023</p>
           <p class="paper-title">Do Deadlines Affect Project Completion? Experimental Evidence from Israeli Vocational Colleges</p>
           <p class="paper-coauthors">with Naomi Gershoni</p>
           <p class="paper-journal"><em>Journal of Economic Behavior &amp; Organization</em>, 205, pp. 359–375.</p>
           <div class="paper-links">
+            <a href="#" class="paper-link">Journal</a>
             <button class="paper-link" onclick="toggleAbstract(this)">Abstract ↓</button>
           </div>
           <p class="paper-abstract">We study a large-scale intervention aimed at increasing graduation rates in Israeli vocational colleges. In this context, the main reason for low graduation rates has been found to be the failure of students to complete the required final project. This may result from procrastination which is prevalent among students in many settings. To address procrastination, we introduce a deadline for final project defense in randomly selected departments while control group departments maintain the practice of scheduling defense dates on a rolling basis. We compare student performance over time in treated and control departments in a difference-in-differences framework and find no effect of deadlines on project defense or on graduation rates. A potential explanation for these findings is that there are other constraints faced by students, such as academic difficulties or a low perceived value of the diploma, which are not alleviated by the deadline. Using administrative and survey data, we find that deadlines have no effect even when the alternative constraints are not binding.</p>
         </div>
-
         <div class="paper">
           <p class="paper-status">Published · 2020</p>
           <p class="paper-title">Preparing for Genocide: Quasi-Experimental Evidence from Rwanda</p>
@@ -677,7 +601,6 @@
           </div>
           <p class="paper-abstract">This paper shows how state-controlled community meetings can facilitate large-scale mobilization of civilians into violence. We analyze a Rwandan community program that required citizens to participate in community work and political meetings every Saturday in the years before the 1994 genocide. We exploit cross-sectional variation in meeting intensity induced by exogenous weather fluctuations, and find that a one standard-deviation increase in the number of rainy Saturdays before the genocide decreased civilian violence by 17 percent. We find evidence that the meetings provided an arena for local elites to spread propaganda and bring people together. In research and policy, community meetings are often treated as positive, community building forces. Our results indicate that they can also lead to negative outcomes. This should, however, not suggest that such meetings are inherently destructive. Instead, community meetings should be understood as powerful tools and their effects depend on the political intention of the leaders. </p>
         </div>
-
         <div class="paper">
           <p class="paper-status">Published · 2020</p>
           <p class="paper-title">Loan Contract Structure and Adverse Selection: Survey Evidence from Uganda</p>
@@ -687,9 +610,8 @@
             <a href="#" class="paper-link">Journal</a>
             <button class="paper-link" onclick="toggleAbstract(this)">Abstract ↓</button>
           </div>
-          <p class="paper-abstract">While adverse selection is an important theoretical explanation for credit rationing it is difficult to quantify empirically. Many studies measure the elasticity of credit demand of existing or previous borrowers as opposed to the population at large; other studies use cross- sectional approaches that may confound borrower risk with other factors. We circumvent both issues by surveying a representative sample of microenterprises in urban Uganda and by measuring their responses to multiple hypothetical contract offers, varying in interest rates and collateral requirements. The two seminal theories on selection provide contradicting predictions following a change in the contractual terms. Under adverse selection, a lower interest rate or a lower collateral obligation should increase take up among less risky borrowers. By contrast, advantageous selection implies that take up should increase among the riskier borrowers. We test these two predictions by examining if firm owners respond to changes in the interest rate or the collateral requirement and whether higher take up varies by firms’ risk type. We find support for the presence of adverse selection as contracts with lower interest rates or lower collateral obligations increase hypothetical demand – especially for less risky firms. Our results imply that changes to the standard loan product available to microenterprises may have substantial effects on credit demand.</p>
+          <p class="paper-abstract">While adverse selection is an important theoretical explanation for credit rationing it is difficult to quantify empirically. Many studies measure the elasticity of credit demand of existing or previous borrowers as opposed to the population at large; other studies use cross- sectional approaches that may confound borrower risk with other factors. We circumvent both issues by surveying a representative sample of microenterprises in urban Uganda and by measuring their responses to multiple hypothetical contract offers, varying in interest rates and collateral requirements. The two seminal theories on selection provide contradicting predictions following a change in the contractual terms. Under adverse selection, a lower interest rate or a lower collateral obligation should increase take up among less risky borrowers. By contrast, advantageous selection implies that take up should increase among the riskier borrowers. We test these two predictions by examining if firm owners respond to changes in the interest rate or the collateral requirement and whether higher take up varies by firms' risk type. We find support for the presence of adverse selection as contracts with lower interest rates or lower collateral obligations increase hypothetical demand – especially for less risky firms. Our results imply that changes to the standard loan product available to microenterprises may have substantial effects on credit demand.</p>
         </div>
-
         <div class="paper">
           <p class="paper-status">Published · 2019</p>
           <p class="paper-title">Leader Selection and Service Delivery in Community Groups: Experimental Evidence from Uganda</p>
@@ -701,12 +623,9 @@
           </div>
           <p class="paper-abstract">In developing countries, NGOs and Governments often rely on local community-based groups for the delivery of financial and public services. This paper provides causal evidence of how the design of rules used for group leader selection affects leader identity and shapes group service delivery. In collaboration with the NGO BRAC, we randomly assigned newly-formed Savings and Loan Groups to select their leaders using either (i) a procedure in which final outcomes are decided in a public discussion or (ii) a procedure in which final outcomes are decided in a private vote. Leaders selected with a private vote are found to be less positively selected on socioeconomic characteristics than those elected in the public procedure, and at the same time more representative of regular group members. Furthermore, selecting more representative leaders—through a private vote—results in groups that are more inclusive towards poor members by giving them more credit and retaining them longer. Three years after their creation, private vote groups are more inclusive than public discussion groups, without being less economically efficient.</p>
         </div>
-
       </div>
-
 <p class="subsection-header">Working Papers &amp; Work in Progress</p>
       <div class="paper-list">
-
         <div class="paper">
           <p class="paper-status">Working Paper</p>
           <p class="paper-title">Local Institutions and Leader Incentives: The Political Economy of Rwanda's Fertility Transition</p>
@@ -718,7 +637,6 @@
           <p class="paper-note"><em>Presentations:</em> ESPE, CSAE, EEA Congress</p>
           <p class="paper-abstract"></p>
         </div>
-
         <div class="paper">
           <p class="paper-status">Working Paper</p>
           <p class="paper-title">Effort or Endowments? Incentives and Morale among Credit Officers</p>
@@ -729,7 +647,6 @@
           <p class="paper-note"><em>Presentations:</em> CEPR Symposium, WEFIDEV, CSAE &nbsp;·&nbsp; AEARCTR-0004529</p>
           <p class="paper-abstract"></p>
         </div>
-
         <div class="paper">
           <p class="paper-status">Work in Progress</p>
           <p class="paper-title">Credit Contracts, Business Development and Gender: Evidence from Uganda</p>
@@ -739,14 +656,12 @@
           </div>
           <p class="paper-note">Randomized control trial in Uganda &nbsp;·&nbsp; AEARCTR-0003062</p>
         </div>
-
         <div class="paper">
           <p class="paper-status">Work in Progress</p>
           <p class="paper-title">The Anatomy of Collective Decision Making: Voice and Choice in a Public Goods Game in Malawi</p>
           <p class="paper-coauthors">with Marina Caregnato-Garcia and Vesall Nourani</p>
           <p class="paper-note">Lab-in-field experiment with farmer groups in Malawi &nbsp;·&nbsp; AEARCTR-0001816</p>
         </div>
-
         <div class="paper">
           <p class="paper-status">Work in Progress</p>
           <p class="paper-title">Financial Inclusion to the Last Mile: Expansion of Retail Agent Networks in the Philippines</p>
@@ -756,87 +671,68 @@
           </div>
           <p class="paper-note">Pilot project in collaboration with IPA Philippines</p>
         </div>
-
       </div>
-
   <p class="subsection-header">Book Chapters &amp; Miscellaneous</p>
       <div class="paper-list">
-
         <div class="paper">
           <p class="paper-status">Book Chapter · 2019</p>
           <p class="paper-title">Financial Inclusion and Social Outcomes</p>
           <p class="paper-coauthors">with Reut Barak Weekes</p>
           <p class="paper-journal">In Y. N. Gez, R. Barak-Weekes and M. Kagan (eds.), <em>International Development in Africa</em>, Pardes Books, 2019. [In Hebrew]</p>
         </div>
-
         <div class="paper">
           <p class="paper-status">Journal Article · 2009</p>
           <p class="paper-title">Sending Money Home: Remittances from the Somaliland Diaspora in Sweden</p>
           <p class="paper-journal"><em>Ekonomisk Debatt</em>, no. 3, 2009. [In Swedish: "Att skicka pengar till hemlandet – Remitteringar från den somaliländska diasporan i Sverige"]</p>
         </div>
-
       </div>
     </div>
-          
-  </section>
 
+  </section>
   <!-- CV -->
   <section id="cv">
     <p class="section-label">Background</p>
     <h2 class="section-title">Curriculum Vitae</h2>
-
     <div class="cv-grid">
       <div class="cv-section-head">Academic Positions</div>
-
       <div class="cv-row">
         <div class="cv-year">2020–</div>
         <div class="cv-detail"><strong>Assistant Professor, Department of Economics</strong>Aalto University School of Business, Helsinki</div>
       </div>
-
         <div class="cv-row">
         <div class="cv-year">2016–2020</div>
         <div class="cv-detail"><strong>Assistant Professor, Department of Economics</strong>Ben-Gurion University of the Negev</div>
       </div>
-      
-      <div class="cv-section-head">Education</div>
 
+      <div class="cv-section-head">Education</div>
       <div class="cv-row">
         <div class="cv-year">2016</div>
         <div class="cv-detail"><strong>PhD in Economics</strong>Institute for International Economic Studies (IIES), Stockholm University</div>
       </div>
-
       <div class="cv-row">
         <div class="cv-year">2008</div>
         <div class="cv-detail"><strong>MSc in Economics</strong>Stockholm University</div>
       </div>
-
       <div class="cv-section-head">Affiliations</div>
-
       <div class="cv-row">
         <div class="cv-year"></div>
         <div class="cv-detail"><strong>Chair, Development Economics Research Group</strong>Helsinki Graduate School of Economics</div>
       </div>
-
       <div class="cv-section-head">Fields</div>
-
       <div class="cv-row">
         <div class="cv-year"></div>
         <div class="cv-detail">Development Economics &nbsp;·&nbsp; Political Economics &nbsp;·&nbsp; Applied Microeconomics</div>
       </div>
     </div>
-
     <div class="cv-download">
       <a href="files/CV_Stryjan_June_2026.pdf" class="btn">Download Full CV (PDF)</a>
     </div>
   </section>
-
   <!-- TEACHING -->
   <section id="teaching">
     <p class="section-label">Courses</p>
     <h2 class="section-title">Teaching</h2>
-
     <div class="course-list">
-
       <div class="course">
         <div>
           <p class="course-name">Development Economics 1</p>
@@ -844,7 +740,6 @@
         </div>
         <p class="course-level">PhD / MSc</p>
       </div>
-
       <div class="course">
         <div>
           <p class="course-name">Principles of Empirical Analysiss</p>
@@ -852,7 +747,6 @@
         </div>
         <p class="course-level">BSc</p>
       </div>
-
       <div class="course">
         <div>
           <p class="course-name">Bachelor Thesis and Seminar</p>
@@ -860,7 +754,6 @@
         </div>
         <p class="course-level">BSc</p>
       </div>
-
             <div class="course">
         <div>
           <p class="course-name">Scientific Thinking and Writing</p>
@@ -870,24 +763,20 @@
       </div>
     </div>
   </section>
-
   <!-- CONTACT -->
   <section id="contact">
     <p class="section-label">Get in Touch</p>
     <h2 class="section-title">Contact</h2>
-
     <div class="contact-body">
       <div class="contact-group">
         <h3>Email</h3>
         <p><a href="mailto:miri.stryjan@aalto.fi">miri.stryjan@aalto.fi</a></p>
-
         <h3 style="margin-top:1.5rem;">Online</h3>
         <p>
           <a href="https://bsky.app/profile/mstryjan.bsky.social" target="_blank" rel="noopener">Bluesky</a><br>
           <a href="https://scholar.google.com/citations?view_op=search_authors&mauthors=miri+stryjan&hl=en&oi=ao" target="_blank" rel="noopener">Google Scholar</a><br>
        </p>
       </div>
-
       <div class="contact-group">
         <h3>Office Address</h3>
         <p>
@@ -900,20 +789,61 @@
       </div>
     </div>
   </section>
-
 </main>
-
 <footer>
   <span>© 2026 Miri Stryjan</span>
   <span>Aalto University</span>
 </footer>
-
 <script>
   // Mobile menu
   const btn = document.getElementById('menuBtn');
   const menu = document.getElementById('mobileMenu');
   btn.addEventListener('click', () => menu.classList.toggle('open'));
-  function closeMobile() { menu.classList.remove('open'); }
+
+  // Section navigation (single-page tabs, no long scroll)
+  const sections = document.querySelectorAll('main > section');
+  const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a, .nav-name');
+
+  function showSection(id) {
+    if (!document.getElementById(id)) id = 'home';
+    sections.forEach(s => s.classList.toggle('active', s.id === id));
+    navLinks.forEach(a => {
+      const href = a.getAttribute('href') || '';
+      a.classList.toggle('active', href === '#' + id);
+    });
+    window.scrollTo(0, 0);
+  }
+
+  navLinks.forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href') || '';
+      if (!href.startsWith('#')) return; // let normal links behave normally
+      e.preventDefault();
+      const id = href.slice(1);
+      showSection(id);
+      history.pushState(null, '', '#' + id);
+      menu.classList.remove('open');
+    });
+  });
+
+  window.addEventListener('popstate', () => {
+    const id = location.hash ? location.hash.slice(1) : 'home';
+    showSection(id);
+  });
+
+  // "View Research" button inside Home also uses #research — handled by delegation below
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link || navLinks.length && [...navLinks].includes(link)) return;
+    const id = link.getAttribute('href').slice(1);
+    if (!document.getElementById(id)) return;
+    e.preventDefault();
+    showSection(id);
+    history.pushState(null, '', '#' + id);
+  });
+
+  // Initial section: respect a direct link like yoursite.com/#teaching, else Home
+  showSection(location.hash ? location.hash.slice(1) : 'home');
 
   // Abstract toggle
   function toggleAbstract(el) {
@@ -922,6 +852,5 @@
     el.textContent = isOpen ? 'Abstract ↑' : 'Abstract ↓';
   }
 </script>
-
 </body>
 </html>
